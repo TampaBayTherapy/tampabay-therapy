@@ -6,6 +6,7 @@ import { mockGalleryImages } from "@/constants/mockGalleryData";
 import Image from "next/image";
 
 export default function GalleryPage() {
+  console.log();
   return (
     <section className="pt-42 pb-12 bg-[#fdfdfd]">
       <Container>
