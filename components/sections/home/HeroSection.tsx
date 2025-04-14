@@ -4,15 +4,16 @@ import { FadeIn, FadeInStagger } from "../../shared/FadeIn";
 
 export default function HeroSection() {
   return (
-    <section className="min-h-[80dvh] landscape:min-h-[100dvh] flex items-center justify-center relative bg-[#FFFDF5]">
+    <section className="min-h-screen flex items-center justify-center relative bg-[#FFFDF5]">
       <Image
         src="/images/tampa-hero-img.jpg"
         alt="Hero image"
+        priority
         fill
         className="object-cover"
         sizes="(min-width: 440px) 100vw, calc(-20vw + 516px)"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/30" />
+
       {/* Content */}
       <FadeInStagger className="text-white px-4 flex flex-col items-center justify-center gap-5 relative max-w-[850px]">
         <FadeIn>
