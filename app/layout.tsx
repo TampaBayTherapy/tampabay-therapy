@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Figtree } from "next/font/google";
 import "./globals.css";
+import { domAnimation, LazyMotion } from "framer-motion";
+import InnerLayout from "@/components/InnerLayout";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
+
+// const outfit = Outfit({
+
+//   subsets:["latin"]
+// })
+
+const figtree = Figtree({
+  subsets:["latin"]
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,9 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${figtree.className}  antialiased`}
       >
-        {children}
+         <LazyMotion features={domAnimation}>
+            <InnerLayout>{children}</InnerLayout>
+          </LazyMotion>
       </body>
     </html>
   );
