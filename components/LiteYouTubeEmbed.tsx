@@ -18,12 +18,15 @@ export default function YouTubeEmbed() {
           />
           <div onClick={() => setLoaded(true)} className="absolute inset-0 bg-transparent z-10 rounded-[32px] cursor-pointer"/>
             <button
+            
               onClick={() => setLoaded(true)}
+               aria-label="Play video"
               className="flex group relative z-20 cursor-pointer self-center items-center sm:self-auto gap-2 text-slate-800 font-semibold"
             >
               <span className="video-play-button">
                 <span></span>
               </span>
+              <span className="sr-only">Play video</span>
             </button>
           
         </div>

@@ -21,8 +21,8 @@ export default function HeroSection() {
         </FadeIn>
         <FadeIn className="relative inline-block">
           <h1 className="text-h1 relative">
-            Empowering Minds,
-            <br /> Transforming Lives
+            <span className="whitespace-nowrap">Empowering Minds,</span>
+            <br /> <span className="whitespace-nowrap">Transforming Lives</span>
             <Image
               className="absolute -top-[0.8em] -right-[0.6em]"
               style={{

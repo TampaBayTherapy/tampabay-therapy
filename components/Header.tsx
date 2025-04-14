@@ -79,7 +79,7 @@ export default function Header() {
     >
       <div className="fixed w-full left-0 right-0 z-[1000]">
         <div
-          className={`flex relative px-10 top-0 py-3  items-center justify-between p-3 transition-all duration-300 ${
+          className={`flex relative px-3 md:px-10 top-0 py-3  items-center justify-between p-3 transition-all duration-300 ${
             headerState === "top"
               ? isHome
                 ? "px-10 bg-white/[0.03] backdrop-filter backdrop-blur-md shadow-md" // Homepage on top
