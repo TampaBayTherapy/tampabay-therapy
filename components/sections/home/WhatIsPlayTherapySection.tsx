@@ -30,6 +30,7 @@ export default function WhatIsPlayTherapySection() {
 
           <FadeIn className="w-full relative mt-12 mx-auto aspect-video max-w-[900px] p-3 bg-accent-purple-dark rounded-[32px]">
             <iframe
+              loading="lazy"
               className="w-full h-full rounded-[32px]"
               src={`https://www.youtube.com/embed/AhnFKu75mgk?autoplay=1&rel=0`}
               title="YouTube video player"
