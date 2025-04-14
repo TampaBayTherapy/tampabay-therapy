@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 export default function MyApproachSection() {
+  console.log("d");
   return (
     <section className="py-12 lg:py-24 bg-[#fdfdfd]">
       <Container>
