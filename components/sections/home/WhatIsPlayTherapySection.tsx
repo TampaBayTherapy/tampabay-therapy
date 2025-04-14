@@ -4,6 +4,7 @@ import { FadeIn, FadeInStagger } from "../../shared/FadeIn";
 import PrimaryButton from "../../shared/PrimaryButton";
 import SectionH2Title from "../../shared/SectionH2Title";
 import { GridBackground } from "../../ui/grid-background";
+import YouTubeEmbed from "@/components/LiteYouTubeEmbed";
 
 export default function WhatIsPlayTherapySection() {
   return (
@@ -28,32 +29,23 @@ export default function WhatIsPlayTherapySection() {
             <PrimaryButton href="/services">Learn More</PrimaryButton>
           </FadeIn>
 
-          <FadeIn className="w-full relative mt-12 mx-auto aspect-video max-w-[900px] p-3 bg-accent-purple-dark rounded-[32px]">
-            <iframe
-              loading="lazy"
-              className="w-full h-full rounded-[32px]"
-              src={`https://www.youtube.com/embed/AhnFKu75mgk?autoplay=1&rel=0`}
-              title="YouTube video player"
-              allow=" encrypted-media"
-              allowFullScreen
-            />
-            <Image
-              className=" absolute bottom-20 -left-52"
-              src="/assets/green-flower-shape.svg"
-              width={120}
-              height={120}
-              alt="flower svg shape"
-            />
-            <Image
-              className=" absolute -right-32 -top-32"
-              src="/assets/purple-flower-shape.svg"
-              width={120}
-              height={120}
-              alt="flower svg shape"
-            />
-          </FadeIn>
+          <YouTubeEmbed />
         </FadeInStagger>
       </Container>
+      <Image
+        className=" absolute -z-10 top-1/2 left-1/5"
+        src="/assets/green-flower-shape.svg"
+        width={120}
+        height={120}
+        alt="flower svg shape"
+      />
+      <Image
+        className=" absolute md:right-1/5 right-0 top-2 md:top-1/4"
+        src="/assets/purple-flower-shape.svg"
+        width={120}
+        height={120}
+        alt="flower svg shape"
+      />
     </section>
   );
 }
