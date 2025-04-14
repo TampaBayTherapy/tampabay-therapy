@@ -3,12 +3,22 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
 import Image from "next/image";
-import { GalleryImage } from "@/constants/mockGalleryData";
+// import { GalleryImage } from "@/constants/mockGalleryData";
 import "swiper/css";
 import "swiper/css/free-mode";
 
+type ImageType = {
+  _key: string;
+  uniqueId: string;
+  asset: {
+    _id: string;
+    url: string;
+  };
+  alt: string;
+};
+
 interface GallerySwiperProps {
-  images: GalleryImage[];
+  images: ImageType[];
 }
 // Height variants (in Tailwind classes)
 const heightVariants = [
@@ -58,7 +68,7 @@ export default function GallerySwiper({ images }: GallerySwiperProps) {
       <div className="absolute opacity-0 h-0 overflow-hidden">
         <Swiper>
           {images.map((image) => (
-            <SwiperSlide key={`preload-${image._id}`} />
+            <SwiperSlide key={`preload-${image.uniqueId}`} />
           ))}
         </Swiper>
       </div>
@@ -79,7 +89,7 @@ export default function GallerySwiper({ images }: GallerySwiperProps) {
         }`}
       >
         {images.map((image, index) => (
-          <SwiperSlide key={image._id}>
+          <SwiperSlide key={image.uniqueId}>
             <div
               className={`relative cursor-grab overflow-hidden ${
                 index % 2 === 0 ? heightVariants[0] : heightVariants[1] // Alternating heights
@@ -88,11 +98,11 @@ export default function GallerySwiper({ images }: GallerySwiperProps) {
             >
               <Image
                 src={image.asset.url}
-                alt={image.asset.alt || "Gallery image"}
+                alt={image.alt || "Gallery image"}
                 fill
                 className="object-cover"
                 sizes="(min-width: 1280px) calc(22.21vw - 23px), (min-width: 1040px) calc(8.64vw + 143px), (min-width: 780px) calc(40vw - 18px), (min-width: 460px) 62vw, (min-width: 400px) calc(32.5vw + 127px), calc(13.75vw + 191px)"
-                priority={image._id === images[0]._id} // Only prioritize first image
+                priority={image.asset._id === images[0].asset._id} // Only prioritize first image
               />
             </div>
           </SwiperSlide>

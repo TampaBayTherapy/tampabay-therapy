@@ -12,8 +12,8 @@ export default function ServicesPage() {
       <section className="pt-42 pb-12 lg:pb-24 bg-[#fdfdfd]">
         <Container>
           <Breadcrumbs />
-          <FadeIn className="text-center mt-12 lg:mt-24">
-            <SectionH2Title text="Our" accentText="Expertise" />
+          <FadeIn className="text-center mt-12 ">
+            <SectionH2Title as="h1" text="Our" accentText="Expertise" />
           </FadeIn>
           <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-12 mt-12 lg:mt-24">
             {expertiseData.map((expertise) => (

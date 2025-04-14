@@ -1,11 +1,14 @@
-import { mockGalleryImages } from "@/constants/mockGalleryData";
+// import { mockGalleryImages } from "@/constants/mockGalleryData";
 import GallerySwiper from "../../GallerySwiper";
 import { Container } from "../../shared/Container";
 import { FadeIn } from "../../shared/FadeIn";
 import SectionH2Title from "../../shared/SectionH2Title";
 import PrimaryButton from "../../shared/PrimaryButton";
+import { fetchGalleryImages } from "@/sanity/lib/fetchGallery";
 
-export default function GallerySection() {
+export default async function GallerySection() {
+  const imagesFromSanity = await fetchGalleryImages();
+  console.log(imagesFromSanity);
   return (
     <section className="pb-12 lg:pb-24 bg-light-slate-bg">
       <Container>
@@ -13,7 +16,7 @@ export default function GallerySection() {
           <SectionH2Title text="Have a" accentText="Look Around" />
         </FadeIn>
       </Container>
-      <GallerySwiper images={mockGalleryImages} />
+      <GallerySwiper images={imagesFromSanity} />
       <div className="w-full flex items-center justify-center mt-6">
         <PrimaryButton href="/gallery">View More</PrimaryButton>
       </div>

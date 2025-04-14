@@ -3,7 +3,7 @@ export interface GalleryImage {
     asset: {
       _ref: string;
       url: string;
-      alt?: string;
+      alt: string;
       dimensions: {
         width: number;
         height: number;
