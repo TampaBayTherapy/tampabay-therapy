@@ -14,6 +14,7 @@ export default function YouTubeEmbed() {
             src="https://img.youtube.com/vi/reJpo-GaopM/maxresdefault.jpg"
             alt="Play Therapy YouTube Video Thumbnail"
             fill
+            sizes="(min-width: 1040px) 876px, (min-width: 780px) 648px, (min-width: 680px) 568px, calc(94.44vw - 55px)"
             className="w-full h-full absolute inset-0 object-cover rounded-[32px]"
           />
           <div onClick={() => setLoaded(true)} className="absolute inset-0 bg-transparent z-10 rounded-[32px] cursor-pointer"/>
