@@ -31,7 +31,6 @@ export default async function GalleryPage() {
     query: ALL_IMAGES,
   });
 
-  console.log(images, "sanity fetch");
 
   return (
     <>
