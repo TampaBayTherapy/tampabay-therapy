@@ -19,7 +19,7 @@ export default function SpecialtiesSection() {
           </p>
         </FadeIn>
         <FadeIn className="mt-6">
-          <PrimaryButton href="/services">
+          <PrimaryButton href="/contact">
             Schedule a Free Consultation
           </PrimaryButton>
         </FadeIn>

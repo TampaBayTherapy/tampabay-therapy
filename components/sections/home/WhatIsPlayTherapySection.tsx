@@ -26,7 +26,7 @@ export default function WhatIsPlayTherapySection() {
             </p>
           </FadeIn>
           <FadeIn className="mt-6">
-            <PrimaryButton href="/services">Learn More</PrimaryButton>
+            <PrimaryButton href="https://www.a4pt.org/page/ParentsCornerHomePag">Learn More</PrimaryButton>
           </FadeIn>
 
           <YouTubeEmbed />

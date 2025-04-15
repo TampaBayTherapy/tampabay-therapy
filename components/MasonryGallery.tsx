@@ -32,6 +32,7 @@ export default function MasonryGallery({
                 .quality(80)
                 .url()}
               alt={item.alt}
+              priority={item.uniqueId === imagesFromSanity[0].uniqueId}
               width={item.asset.metadata.dimensions.width}
               height={item.asset.metadata.dimensions.height}
               placeholder={item.asset.metadata?.lqip ? "blur" : "empty"}
@@ -39,7 +40,7 @@ export default function MasonryGallery({
                 item.asset.metadata?.lqip ||
                 "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQFBgcI/8QAKBAAAgICAQMCBgMAAAAAAAAAAQIDBAAFEQYSIRMxBxQjMkFRUnGR/8QAFwEAAwEAAAAAAAAAAAAAAAAAAgMEAf/EABsRAAMAAwEBAAAAAAAAAAAAAAABAhEhMQMS/9oADAMBAAIRAxEAPwDoXZ6ynYqu80SlkQEHj85RELQzl4yQgBJ/XjHtz1RsY9dORUhH0+Ae/wDOUf4bdWbHYR26mziriVXJDkcHtye9tFEaTC91JasWGet8w0Y8chTwThmmU5a6wALFFwP4gcYYSuWsmOWnwzzfUStmRNhakhqOeVZX5P8AmRM3T8lfYmLVXKzRTRHgk+QT7+c1GbS12aQ2EScN5AcfblfvaWGlBJPUPpdh72UDnuH6xVfU5b4MhqudHtXUejrq1d+WeNAGIPucMU0e1S7S9RkcEOV4/rDCVS1pE79Zz0//2Q=="
               }
-              className="w-full rounded-lg"
+              className="w-full rounded-lg cursor-pointer"
               style={{
                 height: "auto", // Critical for masonry
                 aspectRatio: item.asset.metadata.dimensions.aspectRatio,
