@@ -4,10 +4,11 @@ import { Container } from "../../shared/Container";
 import { FadeIn } from "../../shared/FadeIn";
 import SectionH2Title from "../../shared/SectionH2Title";
 import PrimaryButton from "../../shared/PrimaryButton";
-import { fetchGalleryImages } from "@/sanity/lib/fetchGallery";
+
+import { fetchLatestGalleryImages } from "@/sanity/lib/fetchLatestImages";
 
 export default async function GallerySection() {
-  const imagesFromSanity = await fetchGalleryImages();
+  const imagesFromSanity = await fetchLatestGalleryImages();
   console.log(imagesFromSanity);
   return (
     <section className="pb-12 lg:pb-24 bg-light-slate-bg">

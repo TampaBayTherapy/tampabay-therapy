@@ -7,12 +7,20 @@ import Image from "next/image";
 import "swiper/css";
 import "swiper/css/free-mode";
 
-type ImageType = {
+export type ImageType = {
   _key: string;
   uniqueId: string;
   asset: {
     _id: string;
     url: string;
+    metadata: {
+      lqip: string;
+      dimensions: {
+        width: number;
+        height: number;
+        aspectRatio: number;
+      };
+    };
   };
   alt: string;
 };
@@ -102,7 +110,7 @@ export default function GallerySwiper({ images }: GallerySwiperProps) {
                 fill
                 className="object-cover"
                 sizes="(min-width: 1280px) calc(22.21vw - 23px), (min-width: 1040px) calc(8.64vw + 143px), (min-width: 780px) calc(40vw - 18px), (min-width: 460px) 62vw, (min-width: 400px) calc(32.5vw + 127px), calc(13.75vw + 191px)"
-                priority={image.asset._id === images[0].asset._id} // Only prioritize first image
+                // priority={image.asset._id === images[0].asset._id} // Only prioritize first image
               />
             </div>
           </SwiperSlide>

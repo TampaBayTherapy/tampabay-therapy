@@ -1,8 +1,22 @@
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { Container } from "@/components/shared/Container";
 import { FadeIn } from "@/components/shared/FadeIn";
+import { Metadata } from "next";
 import Image from "next/image";
 import { FaLocationPin, FaPhone } from "react-icons/fa6";
+
+export const metadata: Metadata = {
+  title: "Contact | Child Play Therapy Consultations",
+  description: "Schedule a play therapy consultation or learn more about services for your child. Serving families in [Your Location].",
+  alternates: {
+    canonical: "https://www.tampabayplaytherapy.com/contact"
+  },
+  openGraph: {
+    title: "Contact Play Therapy Specialist",
+    description: "Reach out to discuss how play therapy can help your child. Offering in-person and teletherapy sessions.",
+    url: "https://www.tampabayplaytherapy.com/contact"
+  }
+};
 
 export default function ContactPage() {
   return (

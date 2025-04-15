@@ -4,7 +4,22 @@ import { Container } from "@/components/shared/Container";
 import { FadeIn, FadeInStagger } from "@/components/shared/FadeIn";
 import SectionH2Title from "@/components/shared/SectionH2Title";
 import { expertiseData } from "@/constants/expertiseData";
+import { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Therapeutic Approaches | Play Therapy & EMDR for Children",
+  description: "Specializing in child-centered play therapy, Theraplay® interventions, and pursuing EMDR certification for trauma healing in children.",
+  alternates: {
+    canonical: "https://www.tampabayplaytherapy.com/expertise"
+  },
+  openGraph: {
+    title: "My Therapeutic Expertise | Play Therapy Modalities",
+    description: "Trained in multiple play therapy approaches including child-centered, attachment-based, and family play therapy interventions.",
+    url: "https://www.tampabayplaytherapy.com/expertise"
+  },
+  keywords: ["play therapy modalities", "child-centered therapy", "Theraplay", "EMDR for children", "attachment-based therapy"]
+};
 
 export default function ServicesPage() {
   return (
@@ -27,6 +42,7 @@ export default function ServicesPage() {
                     src={expertise.src}
                     alt={expertise.title} // Added proper alt text
                     fill
+                    sizes="(min-width: 1540px) 332px, (min-width: 1280px) 307px, (min-width: 1040px) 456px, (min-width: 640px) 296px, (min-width: 400px) calc(100vw - 48px), calc(33.75vw + 204px)"
                     className="size-full rounded-[32px] object-cover"
                   />
                 </div>
