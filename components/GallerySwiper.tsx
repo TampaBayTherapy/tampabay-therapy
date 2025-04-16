@@ -1,31 +1,11 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
+
 import { useLazySwiper } from "@/lib/useLazySwiper";
+import { GalleryImage } from "@/constants/mockGalleryData";
 
 
-export type ImageType = {
-  _key: string;
-  uniqueId: string;
-  asset: {
-    _id: string;
-    url: string;
-    metadata: {
-      lqip: string;
-      dimensions: {
-        width: number;
-        height: number;
-        aspectRatio: number;
-      };
-    };
-  };
-  alt: string;
-};
-
-interface GallerySwiperProps {
-  images: ImageType[];
-}
 
 const heightVariants = [
   "h-[350px]", // Standard height
@@ -40,7 +20,7 @@ const radiusVariants = [
   "rounded-[182px_32px_32px_32px]",
 ];
 
-export default function GallerySwiper({ images }: GallerySwiperProps) {
+export default function GallerySwiper({ images }: {images: GalleryImage[]}) {
 
   const { ref, SwiperComponent, SwiperSlideComponent, modules } = useLazySwiper();
 
@@ -76,7 +56,7 @@ export default function GallerySwiper({ images }: GallerySwiperProps) {
         {SwiperComponent && (
           <SwiperComponent>
             {images.map((image) => (
-              <SwiperSlideComponent key={`preload-${image.uniqueId}`} />
+              <SwiperSlideComponent key={`preload-${image._id}`} />
             ))}
           </SwiperComponent>
         )}
@@ -98,16 +78,12 @@ export default function GallerySwiper({ images }: GallerySwiperProps) {
           className={`mt-12 lg:mt-24 relative transition-opacity duration-300 `}
         >
           {images.map((image, index) => (
-            <SwiperSlideComponent key={image.uniqueId}>
+            <SwiperSlideComponent key={image._id}>
               <Image
-                src={urlFor(image.asset).width(430).height(350).quality(80).url()}
-                alt={image.alt || "Gallery image"}
-                placeholder={image.asset.metadata?.lqip ? "blur" : "empty"}
-                blurDataURL={
-                  image.asset.metadata?.lqip ||
-                  "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQFBgcI/8QAKBAAAgICAQMCBgMAAAAAAAAAAQIDBAAFEQYSIRMxBxQjMkFRUnGR/8QAFwEAAwEAAAAAAAAAAAAAAAAAAgMEAf/EABsRAAMAAwEBAAAAAAAAAAAAAAABAhEhMQMS/9oADAMBAAIRAxEAPwDoXZ6ynYqu80SlkQEHj85RELQzl4yQgBJ/XjHtz1RsY9dORUhH0+Ae/wDOUf4bdWbHYR26mziriVXJDkcHtye9tFEaTC91JasWGet8w0Y8chTwThmmU5a6wALFFwP4gcYYSuWsmOWnwzzfUStmRNhakhqOeVZX5P8AmRM3T8lfYmLVXKzRTRHgk+QT7+c1GbS12aQ2EScN5AcfblfvaWGlBJPUPpdh72UDnuH6xVfU5b4MhqudHtXUejrq1d+WeNAGIPucMU0e1S7S9RkcEOV4/rDCVS1pE79Zz0//2Q=="
-                }
-                className={`relative object-cover size-auto cursor-grab overflow-hidden ${
+                src={image.asset.url}
+                alt={image.asset.alt || "Gallery image"}
+               
+                className={`relative object-cover  cursor-grab overflow-hidden ${
                   index % 2 === 0 ? heightVariants[0] : heightVariants[1]
                 } ${getRadiusClass(index)}`}
                 width={430}
