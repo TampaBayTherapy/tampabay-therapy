@@ -1,11 +1,30 @@
 "use client";
 import Image from "next/image";
-import { ImageType } from "./GallerySwiper";
+
 import { urlFor } from "@/sanity/lib/image";
 
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+
+
+export type ImageType = {
+  _key: string;
+  uniqueId: string;
+  asset: {
+    _id: string;
+    url: string;
+    metadata: {
+      lqip: string;
+      dimensions: {
+        width: number;
+        height: number;
+        aspectRatio: number;
+      };
+    };
+  };
+  alt: string;
+};
 
 export default function MasonryGallery({
   imagesFromSanity,

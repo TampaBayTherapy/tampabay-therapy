@@ -7,6 +7,9 @@ import { GalleryImage } from "@/constants/mockGalleryData";
 
 
 
+
+
+
 const heightVariants = [
   "h-[350px]", // Standard height
   "h-[350px]", // Taller height for every second slide
@@ -20,7 +23,7 @@ const radiusVariants = [
   "rounded-[182px_32px_32px_32px]",
 ];
 
-export default function GallerySwiper({ images }: {images: GalleryImage[]}) {
+export default function GallerySwiper({ images }: {images:GalleryImage[]}) {
 
   const { ref, SwiperComponent, SwiperSlideComponent, modules } = useLazySwiper();
 
@@ -82,8 +85,8 @@ export default function GallerySwiper({ images }: {images: GalleryImage[]}) {
               <Image
                 src={image.asset.url}
                 alt={image.asset.alt || "Gallery image"}
-               
-                className={`relative object-cover  cursor-grab overflow-hidden ${
+                
+                className={`relative object-cover cursor-grab overflow-hidden ${
                   index % 2 === 0 ? heightVariants[0] : heightVariants[1]
                 } ${getRadiusClass(index)}`}
                 width={430}
