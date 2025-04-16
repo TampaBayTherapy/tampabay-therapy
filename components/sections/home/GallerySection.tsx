@@ -4,7 +4,7 @@ import { Container } from "../../shared/Container";
 import { FadeIn } from "../../shared/FadeIn";
 import SectionH2Title from "../../shared/SectionH2Title";
 
-import {  SanityLive } from "@/sanity/lib/live";
+// import {  SanityLive } from "@/sanity/lib/live";
 
 import GalleryContent from "@/components/GalleryContent";
 
@@ -27,7 +27,7 @@ export default function GallerySection() {
 
         
       </section>
-      <SanityLive />
+      {/* <SanityLive /> */}
     </>
   );
 }
