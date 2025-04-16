@@ -7,7 +7,15 @@ export const LATEST_IMAGES = defineQuery(`*[_type == "gallery"][0] {
     uniqueId,
     asset-> {
       _id,
-      url
+      url,
+           metadata {
+          dimensions {
+            width,
+            height,
+            aspectRatio
+          },
+          lqip
+          }
     },
     alt
   }

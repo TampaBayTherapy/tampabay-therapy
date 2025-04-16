@@ -6,6 +6,7 @@ import Image from "next/image";
 // import { GalleryImage } from "@/constants/mockGalleryData";
 import "swiper/css";
 import "swiper/css/free-mode";
+import { urlFor } from "@/sanity/lib/image";
 
 export type ImageType = {
   _key: string;
@@ -98,21 +99,22 @@ export default function GallerySwiper({ images }: GallerySwiperProps) {
       >
         {images.map((image, index) => (
           <SwiperSlide key={image.uniqueId}>
-            <div
-              className={`relative cursor-grab overflow-hidden ${
+            <Image
+              src={urlFor(image.asset).width(430).height(350).quality(80).url()}
+              alt={image.alt || "Gallery image"}
+              placeholder={image.asset.metadata?.lqip ? "blur" : "empty"}
+              blurDataURL={
+                image.asset.metadata?.lqip ||
+                "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQFBgcI/8QAKBAAAgICAQMCBgMAAAAAAAAAAQIDBAAFEQYSIRMxBxQjMkFRUnGR/8QAFwEAAwEAAAAAAAAAAAAAAAAAAgMEAf/EABsRAAMAAwEBAAAAAAAAAAAAAAABAhEhMQMS/9oADAMBAAIRAxEAPwDoXZ6ynYqu80SlkQEHj85RELQzl4yQgBJ/XjHtz1RsY9dORUhH0+Ae/wDOUf4bdWbHYR26mziriVXJDkcHtye9tFEaTC91JasWGet8w0Y8chTwThmmU5a6wALFFwP4gcYYSuWsmOWnwzzfUStmRNhakhqOeVZX5P8AmRM3T8lfYmLVXKzRTRHgk+QT7+c1GbS12aQ2EScN5AcfblfvaWGlBJPUPpdh72UDnuH6xVfU5b4MhqudHtXUejrq1d+WeNAGIPucMU0e1S7S9RkcEOV4/rDCVS1pE79Zz0//2Q=="
+              }
+              className={`relative object-cover cursor-grab overflow-hidden ${
                 index % 2 === 0 ? heightVariants[0] : heightVariants[1] // Alternating heights
               }
-               ${getRadiusClass(index)}`}
-            >
-              <Image
-                src={image.asset.url}
-                alt={image.alt || "Gallery image"}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1280px) calc(22.21vw - 23px), (min-width: 1040px) calc(8.64vw + 143px), (min-width: 780px) calc(40vw - 18px), (min-width: 460px) 62vw, (min-width: 400px) calc(32.5vw + 127px), calc(13.75vw + 191px)"
-                // priority={image.asset._id === images[0].asset._id} // Only prioritize first image
-              />
-            </div>
+                 ${getRadiusClass(index)}`}
+              width={430}
+              height={350}
+              // priority={image.asset._id === images[0].asset._id} // Only prioritize first image
+            />
           </SwiperSlide>
         ))}
       </Swiper>

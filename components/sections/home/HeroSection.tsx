@@ -10,7 +10,7 @@ export default function HeroSection() {
         alt="Hero image"
         priority
         fill
-        className="object-cover"
+        className="object-cover pointer-events-none"
         sizes="(min-width: 440px) 100vw, calc(-20vw + 516px)"
       />
 
