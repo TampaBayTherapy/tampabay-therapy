@@ -8,6 +8,7 @@ import {  SanityLive } from "@/sanity/lib/live";
 
 import GalleryContent from "@/components/GalleryContent";
 
+
 // Move fetch to a separate async component
 
 
@@ -23,6 +24,8 @@ export default function GallerySection() {
         <Suspense fallback={<GallerySkeleton />}>
           <GalleryContent />
         </Suspense>
+
+        
       </section>
       <SanityLive />
     </>
