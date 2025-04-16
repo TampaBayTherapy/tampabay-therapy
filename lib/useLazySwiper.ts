@@ -21,6 +21,7 @@ export function useLazySwiper() {
         setModules([module.FreeMode]);
       });
     }
+  
   }, [isInView, SwiperComponent]);
 
   return { ref, SwiperComponent, SwiperSlideComponent, modules };

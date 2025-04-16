@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   },
 };
 
+
 export default async function GalleryPage() {
   const {
     data: { images },

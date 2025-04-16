@@ -1,5 +1,5 @@
 import FAQSection from "@/components/sections/home/FAQSection";
-// import GallerySection from "@/components/sections/home/GallerySection";
+import GallerySection from "@/components/sections/home/GallerySection";
 import HeroSection from "@/components/sections/home/HeroSection";
 import MeetTherapistSection from "@/components/sections/home/MeetTherapistSection";
 import CTASection from "@/components/sections/shared/CTASection";
@@ -12,7 +12,7 @@ export default function Home() {
       <HeroSection />
       <MeetTherapistSection />
       <WhatIsPlayTherapySection />
-      {/* <GallerySection /> */}
+     <GallerySection /> 
       <SpecialtiesSection />
       <FAQSection />
       <CTASection />

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { useLazySwiper } from "@/lib/useLazySwiper";
@@ -41,7 +41,7 @@ const radiusVariants = [
 ];
 
 export default function GallerySwiper({ images }: GallerySwiperProps) {
-  const [isSwiperReady, setSwiperReady] = useState(false);
+
   const { ref, SwiperComponent, SwiperSlideComponent, modules } = useLazySwiper();
 
   // Cycle through radius variants for each slide
@@ -88,16 +88,14 @@ export default function GallerySwiper({ images }: GallerySwiperProps) {
           slidesPerView={3}
           spaceBetween={30}
           freeMode={true}
-          onInit={() => setSwiperReady(true)}
+          
           breakpoints={{
             320: { slidesPerView: 1.5 },
             768: { slidesPerView: 2.5 },
             1024: { slidesPerView: 4.5 },
           }}
           modules={modules}
-          className={`mt-12 lg:mt-24 relative transition-opacity duration-300 ${
-            isSwiperReady ? "opacity-100" : "opacity-0"
-          }`}
+          className={`mt-12 lg:mt-24 relative transition-opacity duration-300 `}
         >
           {images.map((image, index) => (
             <SwiperSlideComponent key={image.uniqueId}>
