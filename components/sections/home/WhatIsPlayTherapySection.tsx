@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { Container } from "../../shared/Container";
 import { FadeIn, FadeInStagger } from "../../shared/FadeIn";
-import PrimaryButton from "../../shared/PrimaryButton";
+
 import SectionH2Title from "../../shared/SectionH2Title";
 import { GridBackground } from "../../ui/grid-background";
 import YouTubeEmbed from "@/components/LiteYouTubeEmbed";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function WhatIsPlayTherapySection() {
   return (
@@ -26,7 +27,16 @@ export default function WhatIsPlayTherapySection() {
             </p>
           </FadeIn>
           <FadeIn className="mt-6">
-            <PrimaryButton href="https://www.a4pt.org/page/ParentsCornerHomePag">Learn More</PrimaryButton>
+            <a
+              target="__blank"
+              rel="noopener noreferrer"
+              href="https://www.a4pt.org/page/ParentsCornerHomePag"
+              className="py-4 flex whitespace-nowrap group font-semibold transition-all duration-500 items-center gap-4 z-10 relative overflow-hidden w-fit rounded-[12px] shadow-sm px-5 bg-accent-blue-light text-text-dark hover:text-white"
+            >
+              Learn More
+              <FaArrowRight />
+              <span className="bg-accent-blue-dark absolute rounded-[12px] -z-10 size-full inset-0 scale-0 transition-all duration-500 group-hover:scale-100" />
+            </a>
           </FadeIn>
 
           <YouTubeEmbed />

@@ -3,9 +3,11 @@ import { LATEST_IMAGES } from "@/sanity/lib/queries";
 import GallerySwiper from "./GallerySwiper";
 import PrimaryButton from "./shared/PrimaryButton";
 
+
+
 export default async function GalleryContent() {
   const { data: { images } } = await sanityFetch({ query: LATEST_IMAGES });
-  console.log(images);
+
   return (
     <>
       <GallerySwiper images={images} />

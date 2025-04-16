@@ -85,7 +85,7 @@ export default function MeetTherapistSection() {
             </FadeIn>
             {/*#CTA */}
             <FadeIn className="self-center">
-              <PrimaryButton href="/about">Learn More</PrimaryButton>
+              <PrimaryButton href="/about">Read More</PrimaryButton>
             </FadeIn>
           </FadeInStagger>
         </div>

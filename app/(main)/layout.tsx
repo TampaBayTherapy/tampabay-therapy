@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: "Licensed Mental Health Counselor (LMHC) and Registered Play Therapist (RPT) providing child-centered play therapy and family interventions. Helping children express emotions and build resilience through play since 2012.",
   keywords: ["play therapy", "child therapist", "LMHC", "RPT", "child mental health", "family therapy"],
   openGraph: {
-    title: "Child & Family Play Therapy Specialist | [Your Name]",
+    title: "Child & Family Play Therapy Specialist | Mary Lehoux",
     description: "Holistic, child-centered therapy approaches to help children and families thrive. LMHC & RPT serving families since 2012.",
     url: "https://www.tampabayplaytherapy.com",
     type: "website",

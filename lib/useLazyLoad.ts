@@ -13,6 +13,7 @@ export default function useLazyLoad(threshold = 0.1) {
     if (inView && !isInView) {
       setIsInView(true);
     }
+    
   }, [inView,isInView]);
 
   return { ref, isInView };
