@@ -2,7 +2,7 @@ import Image from "next/image";
 import Breadcrumbs from "../../shared/Breadcrumbs";
 import { Container } from "../../shared/Container";
 import { FadeIn, FadeInStagger } from "../../shared/FadeIn";
-
+console.log();
 export default function AboutHeroSection() {
   return (
     <section className="pt-42 pb-12 lg:pb-24 bg-[#fdfdfd]">
