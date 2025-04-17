@@ -63,7 +63,7 @@ export default function AboutHeroSection() {
 
           <FadeIn direction="left" className="space-y-6 flex-1 max-w-[900px]">
             <h1 className="text-3xl relative sm:text-4xl w-fit whitespace-nowrap md:text-5xl font-bold text-[#1b1716] flex items-center">
-              Hey! I am Ashley
+              Hey! I am Mary
               <Image
                 className="absolute -top-[0.8em] -right-[0.6em]"
                 style={{
