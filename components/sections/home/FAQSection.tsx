@@ -1,4 +1,3 @@
-import { FAQData } from "@/constants/FAQData";
 import { Container } from "../../shared/Container";
 import { FadeIn } from "../../shared/FadeIn";
 import SectionH2Title from "../../shared/SectionH2Title";
@@ -8,8 +7,20 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../../ui/accordion";
+import { sanityFetch } from "@/sanity/lib/live";
+import { ALL_FAQ } from "@/sanity/lib/queries";
 
-export default function FAQSection() {
+type FAQItem = {
+  _id: string;
+  question: string;
+  answer: string;
+  color: string;
+};
+
+export default async function FAQSection() {
+  const { data: faqItems } = await sanityFetch({ query: ALL_FAQ });
+
+  console.log(faqItems);
   return (
     <Container as="section" className="py-12 lg:py-24">
       <FadeIn className="text-center">
@@ -22,14 +33,14 @@ export default function FAQSection() {
           className="max-w-[950px] mt-12 lg:mt-24 mx-auto flex flex-col gap-6"
           collapsible
         >
-          {FAQData.map((item) => (
+          {faqItems.map((item: FAQItem) => (
             <AccordionItem
               style={{
                 boxShadow: `-4px 0px 0px 0px ${item.color}`,
                 borderLeft: `4px solid ${item.color}`,
               }}
-              key={item.id}
-              value={`item-${item.id}`}
+              key={item._id}
+              value={`item-${item._id}`}
               className="rounded-[20px] p-6 "
             >
               <AccordionTrigger className="text-lg lg:text-xl cursor-pointer">

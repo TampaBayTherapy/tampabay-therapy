@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/shared/FadeIn";
 import SectionH2Title from "@/components/shared/SectionH2Title";
 
 // import { fetchGalleryImages } from "@/sanity/lib/fetchGallery";
-import { sanityFetch, SanityLive } from "@/sanity/lib/live";
+import { sanityFetch } from "@/sanity/lib/live";
 import { ALL_IMAGES } from "@/sanity/lib/queries";
 import { Metadata } from "next";
 
@@ -53,7 +53,7 @@ export default async function GalleryPage() {
           </FadeIn>
         </Container>
       </section>
-      <SanityLive/>
+     
     </>
   );
 }

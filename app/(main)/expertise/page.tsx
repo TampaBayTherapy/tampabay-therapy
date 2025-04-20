@@ -3,25 +3,50 @@ import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { Container } from "@/components/shared/Container";
 import { FadeIn, FadeInStagger } from "@/components/shared/FadeIn";
 import SectionH2Title from "@/components/shared/SectionH2Title";
-import { expertiseData } from "@/constants/expertiseData";
+
+import { sanityFetch } from "@/sanity/lib/live";
+import { ALL_EXPERTISE } from "@/sanity/lib/queries";
 import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Therapeutic Approaches | Play Therapy & EMDR for Children",
-  description: "Specializing in child-centered play therapy, Theraplay® interventions, and pursuing EMDR certification for trauma healing in children.",
+  description:
+    "Specializing in child-centered play therapy, Theraplay® interventions, and pursuing EMDR certification for trauma healing in children.",
   alternates: {
-    canonical: "https://www.tampabayplaytherapy.com/expertise"
+    canonical: "https://www.tampabayplaytherapy.com/expertise",
   },
   openGraph: {
     title: "My Therapeutic Expertise | Play Therapy Modalities",
-    description: "Trained in multiple play therapy approaches including child-centered, attachment-based, and family play therapy interventions.",
-    url: "https://www.tampabayplaytherapy.com/expertise"
+    description:
+      "Trained in multiple play therapy approaches including child-centered, attachment-based, and family play therapy interventions.",
+    url: "https://www.tampabayplaytherapy.com/expertise",
   },
-  keywords: ["play therapy modalities", "child-centered therapy", "Theraplay", "EMDR for children", "attachment-based therapy"]
+  keywords: [
+    "play therapy modalities",
+    "child-centered therapy",
+    "Theraplay",
+    "EMDR for children",
+    "attachment-based therapy",
+  ],
 };
 
-export default function ServicesPage() {
+type expertiseItemType = {
+  _id: string;
+  title: string;
+  text: string;
+  color: string;
+  image: {
+    asset: {
+      url: string;
+    };
+  };
+};
+
+export default async function ServicesPage() {
+  const { data: items } = await sanityFetch({ query: ALL_EXPERTISE });
+
+  console.log(items);
   return (
     <>
       <section className="pt-42 pb-12 lg:pb-24 bg-[#fdfdfd]">
@@ -31,15 +56,15 @@ export default function ServicesPage() {
             <SectionH2Title as="h1" text="Our" accentText="Expertise" />
           </FadeIn>
           <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-12 mt-12 lg:mt-24">
-            {expertiseData.map((expertise) => (
+            {items.map((expertise: expertiseItemType) => (
               <FadeIn
                 className="relative group min-h-[460px] pt-6 bg-[#eee] transition-colors duration-500 hover:bg-[#AFB7C1] focus:bg-[#AFB7C1] active:bg-[#AFB7C1] rounded-[32px]"
-                key={expertise.id}
+                key={expertise._id}
                 tabIndex={0} // Make the card focusable
               >
                 <div className="absolute inset-0 rounded-[32px]">
                   <Image
-                    src={expertise.src}
+                    src={expertise.image.asset.url}
                     alt={expertise.title} // Added proper alt text
                     fill
                     sizes="(min-width: 1540px) 332px, (min-width: 1280px) 307px, (min-width: 1040px) 456px, (min-width: 640px) 296px, (min-width: 400px) calc(100vw - 48px), calc(33.75vw + 204px)"
@@ -59,11 +84,13 @@ export default function ServicesPage() {
                   <h3 className="whitespace-nowrap mb-4 font-semibold text-text-dark">
                     {expertise.title}
                   </h3>
-                  <p className="opacity-0 relative translate-y-10 
+                  <p
+                    className="opacity-0 relative translate-y-10 
                     group-hover:opacity-100 group-hover:translate-y-0 
                     group-focus:opacity-100 group-focus:translate-y-0
                     group-active:opacity-100 group-active:translate-y-0
-                    delay-500 transition-all duration-200">
+                    delay-500 transition-all duration-200"
+                  >
                     {expertise.text}
                   </p>
                 </div>

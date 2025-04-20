@@ -1,3 +1,4 @@
+import { SanityLive } from "@/sanity/lib/live";
 import "./globals.css"
 import { Figtree } from "next/font/google";
 
@@ -18,6 +19,7 @@ export default function RootLayout({
         >
          
              {children}
+             <SanityLive/>
         </body>
       </html>
     );

@@ -40,3 +40,38 @@ export const ALL_IMAGES = defineQuery(`*[_type == "gallery"][0] {
         alt
       }
     }`);
+
+export const ALL_FAQ = defineQuery(`
+  *[_type == "faqItem"]{
+    _id,
+    question,
+    answer,
+    color
+  }`);
+
+
+  export const EXPERTISE_SECTION = defineQuery(`
+    *[_type == "expertiseSection"][0]{
+      items[]{
+        _key,
+        title,
+        text,
+        color,
+        image{ 
+          asset->{ _id, url, metadata{ dimensions { width, height, aspectRatio } } }, 
+          alt 
+        }
+      }
+    }
+  `)
+
+  export const ALL_EXPERTISE = defineQuery(`
+    *[_type == "expertiseItem"] 
+      | order(_createdAt asc) {
+        _id,
+        title,
+        text,
+        color,
+        image{ asset->{url, metadata{dimensions{width,height,aspectRatio}}}, alt }
+      }
+  `)
