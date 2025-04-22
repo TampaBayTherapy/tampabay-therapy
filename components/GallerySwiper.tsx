@@ -3,7 +3,8 @@ import React from "react";
 import Image from "next/image";
 
 import { useLazySwiper } from "@/lib/useLazySwiper";
-import { GalleryImage } from "@/constants/mockGalleryData";
+// import { GalleryImage } from "@/constants/mockGalleryData";
+import { ImageType } from "./MasonryGallery";
 
 
 
@@ -23,7 +24,9 @@ const radiusVariants = [
   "rounded-[182px_32px_32px_32px]",
 ];
 
-export default function GallerySwiper({ images }: {images:GalleryImage[]}) {
+
+
+export default function GallerySwiper({ images }: {images:ImageType[]}) {
 
   const { ref, SwiperComponent, SwiperSlideComponent, modules } = useLazySwiper();
 
@@ -31,6 +34,8 @@ export default function GallerySwiper({ images }: {images:GalleryImage[]}) {
   const getRadiusClass = (index: number) => {
     return radiusVariants[index % radiusVariants.length];
   };
+
+
 
   return (
     <div className="relative" ref={ref}>
@@ -59,7 +64,7 @@ export default function GallerySwiper({ images }: {images:GalleryImage[]}) {
         {SwiperComponent && (
           <SwiperComponent>
             {images.map((image) => (
-              <SwiperSlideComponent key={`preload-${image._id}`} />
+              <SwiperSlideComponent key={`preload-${image.uniqueId}`} />
             ))}
           </SwiperComponent>
         )}
@@ -81,10 +86,10 @@ export default function GallerySwiper({ images }: {images:GalleryImage[]}) {
           className={`mt-12 lg:mt-24 relative transition-opacity duration-300 `}
         >
           {images.map((image, index) => (
-            <SwiperSlideComponent key={image._id}>
+            <SwiperSlideComponent key={image.uniqueId}>
               <Image
                 src={image.asset.url}
-                alt={image.asset.alt || "Gallery image"}
+                alt={image.alt || "Gallery image"}
                 
                 className={`relative object-cover cursor-grab overflow-hidden ${
                   index % 2 === 0 ? heightVariants[0] : heightVariants[1]

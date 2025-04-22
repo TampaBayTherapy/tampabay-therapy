@@ -20,7 +20,7 @@ type FAQItem = {
 export default async function FAQSection() {
   const { data: faqItems } = await sanityFetch({ query: ALL_FAQ });
 
-  console.log(faqItems);
+
   return (
     <Container as="section" className="py-12 lg:py-24">
       <FadeIn className="text-center">
