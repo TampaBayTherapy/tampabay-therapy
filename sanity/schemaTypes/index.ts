@@ -7,6 +7,7 @@ import {authorType} from './authorType'
 import galleryType from './galleryType'
 import faqType from './faqType'
 import expertiseType from './expertiseType'
+// import aboutPageType from './aboutPageType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [blockContentType, categoryType, postType, authorType,galleryType,faqType,expertiseType],

@@ -6,7 +6,6 @@ import Header from "./Header";
 
 
 
-
 type InnerLayoutProps = {
   children: ReactNode;
 };
@@ -26,6 +25,7 @@ export default function InnerLayout({ children }: InnerLayoutProps) {
       </div>
       
       <div id="modal-root"></div>
+    
     </>
   );
 }
