@@ -1,5 +1,8 @@
-// sanity.config.ts
 'use client'
+
+/**
+ * This configuration is used to for the Sanity Studio that’s mounted on the `\app\studio\[[...tool]]\page.tsx` route
+ */
 
 import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
@@ -22,25 +25,4 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
   ],
-  // Add this event handler for studio start
-  studio: {
-    components: {
-      layout: (props) => {
-        // When the Sanity Studio loads, set the editing cookie
-        if (typeof window !== 'undefined') {
-          fetch('/api/sanity-editing?editing=true')
-            .catch(err => console.error('Failed to set editing mode:', err));
-          
-          // Clean up when the studio component unmounts
-          window.addEventListener('beforeunload', () => {
-            fetch('/api/sanity-editing?editing=false')
-              .catch(err => console.error('Failed to clear editing mode:', err));
-          });
-        }
-        
-        // Return the original layout
-        return props.renderDefault(props);
-      }
-    }
-  }
 })
