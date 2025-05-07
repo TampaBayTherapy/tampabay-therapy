@@ -14,7 +14,7 @@ interface CredentialCardProps {
 function CredentialCard({ text, borderColor }: CredentialCardProps) {
   return (
     <div
-      className="p-6 md:p-8 rounded-[32px] bg-[#fdfdfd] shadow-sm max-w-[400px] md:max-w-[450px]"
+      className="p-6 md:p-8 rounded-[32px] bg-[#fdfdfd] h-full shadow-sm max-w-[400px] md:max-w-[450px]"
       style={{
         border: `2px solid ${borderColor}`,
         boxShadow: `-4px 0px 0px 0px ${borderColor}`,
@@ -29,7 +29,7 @@ function CredentialCard({ text, borderColor }: CredentialCardProps) {
 
 export default function AboutEducationSection() {
   return (
-    <section className="overflow-hidden relative pt-12 pb-8 lg:pb-0 lg:pt-24  bg-light-blue-bg">
+    <section className="overflow-hidden relative py-12 pb-8  lg:py-24  bg-light-blue-bg">
       <GridBackground />
       <Container className="relative">
         <Image
@@ -50,18 +50,19 @@ export default function AboutEducationSection() {
           <SectionH2Title text="My" accentText="Education" />
         </FadeIn>
 
-        <FadeInStagger className="relative mt-12 lg:mt-24 w-full grid md:grid-cols-2 justify-center mx-auto gap-10 min-h-[600px]  max-w-5xl ">
+        <FadeInStagger className="relative mt-12 lg:mt-24 w-full grid md:grid-cols-2 justify-center mx-auto gap-5   max-w-5xl ">
           {educationData.map((education, index) => (
             <FadeIn
               direction={
                 index % 2 === 0 ? "right" : "left" // Alternate between right and left
               }
               key={education.id}
-              className={cn(`relative`, education.rotation)}
+              className={cn(`relative `, )}
             >
               <CredentialCard
                 text={education.text}
                 borderColor={education.color}
+                
               />
               {index === 1 && (
                 <Image
