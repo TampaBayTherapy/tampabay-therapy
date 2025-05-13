@@ -122,7 +122,7 @@ export default function Header() {
           {/* Animated Items */}
           <div className="flex items-center justify-center whitespace-nowrap gap-x-8">
             <div className="hidden md:block">
-              <PrimaryButton href="/">Book an appointment</PrimaryButton>
+              <PrimaryButton href="/contact">Book an appointment</PrimaryButton>
             </div>
 
             <div className="lg:hidden">
