@@ -48,7 +48,7 @@ export default function SpecialtiesSection() {
              <div className="absolute left-0 right-0 group-hover:-bottom-6 transition-all duration-500 -bottom-10 z-30 p-2 flex rounded-[12px] bg-white">
                 <div
                   style={{ backgroundColor: service.color }}
-                  className="rounded-[12px] p-4 w-full"
+                  className="rounded-[12px] flex items-center justify-center p-4 min-h-[88px] w-full"
                 >
                   <h3 className="text-lg  font-bold text-gray-900">
                     {service.title}
