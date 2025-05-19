@@ -61,7 +61,7 @@ export default function SpecialtiesSection() {
         </FadeIn>
       </FadeInStagger>
        <FadeIn className="self-center w-full flex items-center justify-center pt-12">
-                    <PrimaryButton  href="/about">Read More</PrimaryButton>
+                    <PrimaryButton  href="/expertise">Read More</PrimaryButton>
                   </FadeIn>
     </Container>
   );
