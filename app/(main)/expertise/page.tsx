@@ -1,8 +1,16 @@
+// app/expertise/page.tsx  (still a Server Component)
 import CTASection from "@/components/sections/shared/CTASection";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { Container } from "@/components/shared/Container";
 import { FadeIn, FadeInStagger } from "@/components/shared/FadeIn";
 import SectionH2Title from "@/components/shared/SectionH2Title";
+
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
 import { sanityFetch } from "@/sanity/lib/live";
 import { ALL_EXPERTISE } from "@/sanity/lib/queries";
@@ -13,9 +21,7 @@ export const metadata: Metadata = {
   title: "Therapeutic Approaches | Play Therapy & EMDR for Children",
   description:
     "Specializing in child-centered play therapy, Theraplay® interventions, and pursuing EMDR certification for trauma healing in children.",
-  alternates: {
-    canonical: "https://www.tampabayplaytherapy.com/expertise",
-  },
+  alternates: { canonical: "https://www.tampabayplaytherapy.com/expertise" },
   openGraph: {
     title: "My Therapeutic Expertise | Play Therapy Modalities",
     description:
@@ -36,17 +42,12 @@ type expertiseItemType = {
   title: string;
   text: string;
   color: string;
-  image: {
-    asset: {
-      url: string;
-    };
-  };
+  image: { asset: { url?: string } };
 };
 
 export default async function ServicesPage() {
   const { data: items } = await sanityFetch({ query: ALL_EXPERTISE });
 
-  console.log(items);
   return (
     <>
       <section className="pt-42 pb-12 lg:pb-24 bg-[#fdfdfd]">
@@ -55,50 +56,61 @@ export default async function ServicesPage() {
           <FadeIn className="text-center mt-12 ">
             <SectionH2Title as="h1" text="Our" accentText="Expertise" />
           </FadeIn>
-          <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-12 mt-12 lg:mt-24">
-            {items.map((expertise: expertiseItemType) => (
-              <FadeIn
-                className="relative group min-h-[460px] pt-6 bg-[#eee] transition-colors duration-500 hover:bg-[#AFB7C1] focus:bg-[#AFB7C1] active:bg-[#AFB7C1] rounded-[32px]"
-                key={expertise._id}
-                tabIndex={0} // Make the card focusable
-              >
-                <div className="absolute inset-0 rounded-[32px]">
-                  <Image
-                    src={expertise.image.asset.url}
-                    alt={expertise.title} // Added proper alt text
-                    fill
-                    sizes="(min-width: 1540px) 332px, (min-width: 1280px) 307px, (min-width: 1040px) 456px, (min-width: 640px) 296px, (min-width: 400px) calc(100vw - 48px), calc(33.75vw + 204px)"
-                    className="size-full rounded-[32px] object-cover"
-                  />
-                </div>
-                <div
-                  style={{ backgroundColor: expertise.color }}
-                  className="rounded-[12px] absolute -bottom-8 left-1/2 transition-all duration-500 
-                  group-hover:left-0 group-hover:bottom-0 group-hover:translate-x-0 
-                  group-focus:left-0 group-focus:bottom-0 group-focus:translate-x-0
-                  group-active:left-0 group-active:bottom-0 group-active:translate-x-0
-                  text-center h-[68px] overflow-hidden 
-                  group-hover:h-[170px] group-focus:h-[170px] group-active:h-[170px]
-                  -translate-x-1/2 border-[6px] w-fit border-white p-4"
+
+          {/*
+            FadeInStagger still animates each child FadeIn.
+            We move the grid onto the Accordion root.
+          */}
+          <FadeInStagger className="mt-12 lg:mt-24">
+            <Accordion
+              type="single"
+              collapsible
+              className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-12"
+            >
+              {items.map((expertise: expertiseItemType) => (
+                <FadeIn
+                  key={expertise._id}
+                  tabIndex={0}
+                  className="relative group min-h-[460px] pt-6 bg-[#eee] rounded-[32px]
+                             transition-colors duration-500
+                             hover:bg-[#AFB7C1] focus:bg-[#AFB7C1] active:bg-[#AFB7C1]"
                 >
-                  <h3 className="whitespace-nowrap mb-4 font-semibold text-text-dark">
-                    {expertise.title}
-                  </h3>
-                  <p
-                    className="opacity-0 relative translate-y-10 
-                    group-hover:opacity-100 group-hover:translate-y-0 
-                    group-focus:opacity-100 group-focus:translate-y-0
-                    group-active:opacity-100 group-active:translate-y-0
-                    delay-500 transition-all duration-200"
+                  {/* background image */}
+                  <div className="absolute inset-0 rounded-[32px]">
+                    <Image
+                      src={expertise.image?.asset?.url ?? "/expertise-fallback.png"}
+                      alt={expertise.title}
+                      fill
+                      sizes="(min-width:1540px)332px,
+                             (min-width:1280px)307px,
+                             (min-width:1040px)456px,
+                             (min-width:640px)296px,
+                             calc(100vw-48px)"
+                      className="object-cover rounded-[32px]"
+                    />
+                  </div>
+
+                  {/* each item now is an AccordionItem at the bottom */}
+                  <AccordionItem
+                    value={expertise._id}
+                    className="absolute bottom-0 left-0 right-0 z-20
+                               px-4 rounded-[32px]"
+                    style={{ background: expertise.color }}
                   >
-                    {expertise.text}
-                  </p>
-                </div>
-              </FadeIn>
-            ))}
+                    <AccordionTrigger className="text-lg text-center font-semibold">
+                      {expertise.title}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-lg">
+                      {expertise.text}
+                    </AccordionContent>
+                  </AccordionItem>
+                </FadeIn>
+              ))}
+            </Accordion>
           </FadeInStagger>
         </Container>
       </section>
+
       <CTASection />
     </>
   );

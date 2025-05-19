@@ -42,10 +42,10 @@ export const myApproachData = [
   {
     id: 3,
     title: "Building Emotional Regulation & Resilience",
-    text: "Through a personalized approach, we equip children with skills to manage emotions and behaviors, helping them feel safe, understood, and able to thrive.",
+    text: "Through a personalized approach, we will equip your child and family with skills to manage emotions and behaviors, helping your child to feel safe, understood, and able to thrive.",
     color: "#D9C2FF",
-    src:"/assets/about-page/approach-3-img.png",
-     imgStyles:"w-1/2 h-full relative translate-y-12 ml-auto",
+    src:"/assets/about-page/approach-4-img.png",
+     imgStyles:"w-1/2 h-full relative  translate-y-12 ml-auto",
      widthImg: 230,
      height: 300,
      shapes: [

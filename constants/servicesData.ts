@@ -2,32 +2,37 @@
 export const servicesData = [
     {
         id:1,
-        src: "/images/services/service-1.png",
+        src: "/images/services/service-1-1.png",
         color:"#C1EDA5",
-        text:"Parenting"
+        title:"Medical Trauma and Chronic Illness",
+        text: "Supporting children in coping with the emotional impact of medical procedures, hospitalizations, or serious diagnoses."
     },
     {
         id:2,
-        src: "/images/services/service-2.png",
+        src: "/images/services/service-2-2.png",
         color:"#FFF0B0",
-         text:"Anxiety & Stress"
+         title:"Anxiety and Worries",
+         text:"Helping children overcome fears or worries that disrupt daily life.”"
     },
     {
         id:3,
-        src: "/images/services/service-3.png",
+        src: "/images/services/service-3-3.png",
         color:"#FFBE81",
-         text:"Mood & Emotion"
+         title:"Grief and Loss",
+         text:"Adjustment after a significant loss or major life transition."
     },
     {
         id:4,
-        src: "/images/services/service-4.png",
+        src: "/images/services/service-4-4.png",
         color:"#FFD5E5",
-         text:"Grief & Loss"
+         title:"Mood and Behavioral Challenges",
+         text: "Improving emotional regulation, cooperation, and behavior at home or school."
     },
     {
         id:5,
-        src: "/images/services/service-5.png",
+        src: "/images/services/service-5-5.png",
         color:"#D9C2FF",
-         text:"Trauma"
+         title:"Life Transitions and Adjustment",
+         text:"Navigating changes in family structure, home, or school environment."
     },
 ]  as const

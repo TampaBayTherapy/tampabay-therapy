@@ -16,13 +16,11 @@ export default function HeroSection() {
 
       {/* Content */}
       <FadeInStagger className="text-white px-4 flex flex-col items-center justify-center gap-5 relative max-w-[850px]">
-        <FadeIn>
-          <p className="uppercase">No 1 therapy platform</p>
-        </FadeIn>
         <FadeIn className="relative inline-block">
           <h1 className="text-h1 relative">
-            <span className="whitespace-nowrap">Empowering Minds,</span>
-            <br /> <span className="whitespace-nowrap">Transforming Lives</span>
+            <span className="whitespace-nowrap">Through Connection</span>
+            <br />{" "}
+            <span className="whitespace-nowrap">We Can Achieve More</span>
             <Image
               className="absolute -top-[0.8em] -right-[0.6em]"
               style={{
@@ -38,8 +36,8 @@ export default function HeroSection() {
         </FadeIn>
         <FadeIn>
           <p className="text-paragraph text-center">
-            At Bright Minds Therapy, we provide compassionate care for all ages,
-            supporting emotional well-being and personal growth.
+            At Tampa Bay Play Therapy, we help children and families heal, grow,
+            and thrive through compassionate, evidence-based play therapies.
           </p>
         </FadeIn>
         <FadeIn>

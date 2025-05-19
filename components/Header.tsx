@@ -53,8 +53,8 @@ export default function Header() {
     "top"
   );
   const { scrollY } = useScroll();
-  const pathname = usePathname()
-  const isHome = pathname === "/"
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
@@ -100,13 +100,23 @@ export default function Header() {
             className="relative w-[120px] h-[40px] sm:w-[180px] sm:h-[80px]"
           >
             <Link href="/" aria-label="Home">
-              <Image
-                src="/logo-header.svg"
-                priority
-                alt="TampaBay Therapy Logo"
-                className="object-contain"
-                fill
-              />
+              {headerState === "top" ? (
+                <Image
+                  src="/logo-header-dark.png"
+                  priority
+                  alt="TampaBay Therapy Logo"
+                  className="object-contain "
+                  fill
+                />
+              ) : (
+                <Image
+                  src="/logo-header.svg"
+                  priority
+                  alt="TampaBay Therapy Logo"
+                  className="object-contain "
+                  fill
+                />
+              )}
             </Link>
           </div>
           <nav className="hidden lg:block  ">

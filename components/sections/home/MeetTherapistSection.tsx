@@ -14,7 +14,7 @@ export default function MeetTherapistSection() {
         <div className="flex flex-col items-center lg:items-start lg:flex-row gap-6">
           <FadeIn
             direction="right"
-            className="relative max-w-[500px] shrink-0 max-h-[500px]"
+            className="relative  stretch aspect-square"
           >
             <span className="absolute size-full bg-accent-rose-light top-1 lg:top-2 -left-1 lg:-left-2 rounded-[50px]" />
             <Image
@@ -32,7 +32,7 @@ export default function MeetTherapistSection() {
             {/*#Card 1 */}
             <FadeIn
               direction="left"
-              className="w-full flex flex-col items-center text-center md:items-start md:text-start md:flex-row p-6 bg-accent-rose-light gap-6 rounded-[20px]"
+              className="w-full flex flex-col items-center text-center   p-6 bg-accent-rose-light gap-6 rounded-[20px]"
             >
               <div className="bg-accent-rose-dark p-4 size-24 shrink-0 rounded-[20px]  flex items-center justify-center">
                 <Image
@@ -47,11 +47,19 @@ export default function MeetTherapistSection() {
                 <div className="flex flex-col gap-6">
                   <h3 className="text-h3">About Me</h3>
                   <p className="text-paragraph">
-                    I am a Licensed Mental Health Counsellor (LMHC) and
-                    Registered Play Therapist (RPT) with a Master’s degree in
+                    I am a Licensed Mental Health Counselor (LMHC) and
+                    Registered Play Therapist (RPT) with a Master of Arts in
                     Clinical Psychology. Since 2012, I have been dedicated to
-                    helping children and families navigate challenges through a
-                    holistic, child-centred approach.
+                    helping children and families navigate challenges through an
+                    integrated and child-centered approach. I am trained in
+                    various therapeutic modalities, including EMDR and
+                    Theraplay. I specialize in child-centered, trauma-focused,
+                    attachment-based, and family play therapy interventions.
+                    While much of my work has centered on helping children and
+                    families navigate the challenges of medical trauma, I also
+                    support clients coping with a wide range of traumatic
+                    experiences and emotional needs. My approach is flexible and
+                    responsive to each child’s unique circumstances.
                   </p>
                 </div>
               </div>
@@ -59,7 +67,7 @@ export default function MeetTherapistSection() {
             {/*#Card 2 */}
             <FadeIn
               dir="left"
-              className="w-full flex flex-col items-center text-center md:items-start md:text-start md:flex-row p-4 md:p-6 bg-accent-purple-light gap-6 rounded-[20px]"
+              className="w-full flex flex-col items-center text-center   p-4 md:p-6 bg-accent-purple-light gap-6 rounded-[20px]"
             >
               <div className="bg-accent-purple-dark p-4 rounded-[20px] size-24 shrink-0  flex items-center justify-center">
                 <Image
