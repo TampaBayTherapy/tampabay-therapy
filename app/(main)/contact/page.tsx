@@ -57,13 +57,13 @@ export default function ContactPage() {
             <div className="w-full flex-col gap-4 sm:flex-row flex items-center justify-between">
               <a
                 className="font-semibold group flex flex-col items-center gap-4"
-                href="tel:+123456789"
+                href="tel:+12816865403"
               >
                 <span className="flex items-center justify-center p-3 group-hover:text-accent-blue-dark group-hover:bg-white transition-all duration-300 size-12 bg-accent-blue-dark rounded-full text-white">
                   <FaPhone className="size-6" />
                 </span>
                 <p className="font-semibold text-xl group-hover:text-accent-blue-dark transition-colors duration-300">
-                  +123456789
+                  281-686-5403
                 </p>
               </a>
               <a
@@ -76,7 +76,7 @@ export default function ContactPage() {
                   <FaLocationPin className="size-6" />
                 </span>
                 <address className="font-semibold text-xl group-hover:text-accent-blue-dark transition-colors duration-300">
-                  2118 Thornridge Cir. Syracuse, Connecticut 35624
+                  Coming soon!
                 </address>
               </a>
             </div>

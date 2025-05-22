@@ -1,8 +1,11 @@
+"use client";
 import Image from "next/image";
 import PrimaryButton from "../../shared/PrimaryButton";
 import { FadeIn, FadeInStagger } from "../../shared/FadeIn";
 
+
 export default function HeroSection() {
+  
   return (
     <section className="min-h-screen flex items-center justify-center relative bg-[#FFFDF5]">
       <Image
@@ -14,6 +17,7 @@ export default function HeroSection() {
         sizes="(min-width: 440px) 100vw, calc(-20vw + 516px)"
       />
 
+     
       {/* Content */}
       <FadeInStagger className="text-white px-4 flex flex-col items-center justify-center gap-5 relative max-w-[850px]">
         <FadeIn className="relative inline-block">

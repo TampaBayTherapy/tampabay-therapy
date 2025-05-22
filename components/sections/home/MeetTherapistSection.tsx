@@ -3,13 +3,27 @@ import { Container } from "../../shared/Container";
 import SectionH2Title from "../../shared/SectionH2Title";
 import PrimaryButton from "../../shared/PrimaryButton";
 import { FadeIn, FadeInStagger } from "../../shared/FadeIn";
+import { MEET_THERAPIST_SECTION } from "@/sanity/lib/queries";
+import { sanityFetch } from "@/sanity/lib/live";
 
-export default function MeetTherapistSection() {
+export default async function MeetTherapistSection() {
+   const { data: section } = await sanityFetch({
+    query: MEET_THERAPIST_SECTION,
+  })
+
+  if (!section) return null
+console.log(section);
+  const { title, accentText, image, cards } = section
+
+  const aboutCard = cards[0]
+  const approachCard = cards[1]
+
+  console.log(aboutCard,approachCard);
   return (
     <Container as="section" className="py-12 lg:py-24">
       <FadeInStagger className="w-full flex flex-col items-center gap-12 lg:gap-24 justify-center">
         <FadeIn>
-          <SectionH2Title text="Meet Your" accentText="Therapist" />
+          <SectionH2Title text={title} accentText={accentText} />
         </FadeIn>
         <div className="flex flex-col items-center lg:items-start lg:flex-row gap-6">
           <FadeIn
@@ -19,8 +33,8 @@ export default function MeetTherapistSection() {
             <span className="absolute size-full bg-accent-rose-light top-1 lg:top-2 -left-1 lg:-left-2 rounded-[50px]" />
             <Image
               className="rounded-[50px] z-10 relative"
-              src="/images/therapist-img.jpg"
-              alt="Therapist Image"
+              src={image.asset.url}
+              alt={image.alt}
               width={500}
               height={500}
             />
@@ -36,30 +50,18 @@ export default function MeetTherapistSection() {
             >
               <div className="bg-accent-rose-dark p-4 size-24 shrink-0 rounded-[20px]  flex items-center justify-center">
                 <Image
-                  src="/assets/about-icon.svg"
+                  src={aboutCard.icon.asset.url}
                   width={90}
                   height={90}
-                  alt="Info Icon"
+                  alt={aboutCard.icon.alt}
                 />
               </div>
 
               <div className="max-w-2xl">
                 <div className="flex flex-col gap-6">
-                  <h3 className="text-h3">About Me</h3>
+                  <h3 className="text-h3">{aboutCard.heading}</h3>
                   <p className="text-paragraph">
-                    I am a Licensed Mental Health Counselor (LMHC) and
-                    Registered Play Therapist (RPT) with a Master of Arts in
-                    Clinical Psychology. Since 2012, I have been dedicated to
-                    helping children and families navigate challenges through an
-                    integrated and child-centered approach. I am trained in
-                    various therapeutic modalities, including EMDR and
-                    Theraplay. I specialize in child-centered, trauma-focused,
-                    attachment-based, and family play therapy interventions.
-                    While much of my work has centered on helping children and
-                    families navigate the challenges of medical trauma, I also
-                    support clients coping with a wide range of traumatic
-                    experiences and emotional needs. My approach is flexible and
-                    responsive to each child’s unique circumstances.
+                   {aboutCard.content}
                   </p>
                 </div>
               </div>
@@ -71,22 +73,18 @@ export default function MeetTherapistSection() {
             >
               <div className="bg-accent-purple-dark p-4 rounded-[20px] size-24 shrink-0  flex items-center justify-center">
                 <Image
-                  src="/assets/approach-icon.svg"
+                  src={approachCard.icon.asset.url}
                   width={120}
                   height={120}
-                  alt="Approach Icon"
+                  alt={approachCard.icon.alt}
                 />
               </div>
 
               <div className="max-w-2xl">
                 <div className="flex flex-col gap-6">
-                  <h3 className="text-h3">My Approach</h3>
+                  <h3 className="text-h3">{approachCard.heading}</h3>
                   <p className="text-paragraph">
-                    Trained in various play therapy modalities, I specialize in
-                    child-centred, attachment-based, and family play therapy
-                    interventions. As a Level 1 Thera play practitioner, I focus
-                    on fostering secure attachments through play. Currently, I
-                    am pursuing EMDR certification to support trauma healing.
+                    {approachCard.content}
                   </p>
                 </div>
               </div>

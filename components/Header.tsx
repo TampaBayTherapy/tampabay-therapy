@@ -72,12 +72,16 @@ export default function Header() {
     <m.header
       initial={{ y: -150 }}
       animate={{
-        y: headerState === "hidden" ? -120 : 0,
+        y: headerState === "hidden" ? -190 : 0,
       }}
       transition={{ type: "tween", duration: 0.4 }}
       className={`fixed top-0 left-0  w-full z-[1000] `}
     >
       <div className="fixed w-full left-0 right-0 z-[1000]">
+        <div className="w-full bg-accent-blue-dark py-2 px-2 text-white text-center">
+          Accepting new clients for initial assessments in July, and then
+          beginning in-person, follow-up therapy sessions in August
+        </div>
         <div
           className={`flex relative px-3 md:px-10 top-0 py-3  items-center justify-between p-3 transition-all duration-300 ${
             headerState === "top"

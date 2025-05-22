@@ -75,3 +75,22 @@ export const ALL_FAQ = defineQuery(`
         image{ asset->{url, metadata{dimensions{width,height,aspectRatio}}}, alt }
       }
   `)
+
+  export const MEET_THERAPIST_SECTION = defineQuery(`
+  *[_type == "meetTherapistSectionType"][0] {
+    title,
+    accentText,
+    image {
+      asset->{ url, metadata { dimensions { width, height } } },
+      alt
+    },
+    cards[] {
+      _key,
+      icon { asset->{ url }, alt },
+      heading,
+      content,
+      bgColor
+    },
+    cta { text, url }
+  }
+`)

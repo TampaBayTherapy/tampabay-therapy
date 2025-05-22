@@ -19,8 +19,8 @@ export type FooterLink = {
     {
       title: "Call",
       content: [{ 
-        text: "+123 456 789", 
-        href: "tel:+123456789",
+        text: "281-686-5403", 
+         href: "tel:+12816865403",
         type: 'phone'
       }],
       color: "#C1EDA5",
@@ -41,7 +41,7 @@ export type FooterLink = {
     {
       title: "Address",
       content: [{
-        text: "2118 Thornridge Cir. Syracuse, Connecticut 35624",
+        text: "Coming soon!",
         href: "https://www.google.com/maps/place/...",
         type: 'map'
       }],
