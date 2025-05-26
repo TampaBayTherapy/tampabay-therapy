@@ -24,11 +24,11 @@ export default function SpecialtiesSection() {
           </PrimaryButton>
         </FadeIn>
 
-        <FadeIn className="grid gap-12  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-0  mt-12 lg:mt-24">
+        <FadeIn className="flex gap-10 items-center justify-center lg:gap-0 flex-wrap mt-12 lg:mt-24">
           {servicesData.map((service) => (
             <div
               key={service.id}
-              className="relative group min-w-[280px] flex min-h-[400px]  mix-blend-multiply "
+              className="relative group mt-10 min-w-[280px] flex min-h-[400px]  mix-blend-multiply "
               style={{ backgroundColor: service.color }}
             >
               {/* Image with blend mode */}
