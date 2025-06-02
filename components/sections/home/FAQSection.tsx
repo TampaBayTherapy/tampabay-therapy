@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "../../shared/Container";
 import { FadeIn } from "../../shared/FadeIn";
 import SectionH2Title from "../../shared/SectionH2Title";
@@ -19,7 +20,6 @@ type FAQItem = {
 
 export default async function FAQSection() {
   const { data: faqItems } = await sanityFetch({ query: ALL_FAQ });
-
 
   return (
     <Container as="section" className="py-12 lg:py-24">
@@ -53,6 +53,14 @@ export default async function FAQSection() {
           ))}
         </Accordion>
       </FadeIn>
+
+      <Image
+        src="/diversity-logo.png"
+        alt="diversity logo"
+        width={400}
+        height={400}
+        className="mx-auto mt-12"
+      />
     </Container>
   );
 }

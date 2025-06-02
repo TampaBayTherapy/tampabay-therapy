@@ -4,6 +4,7 @@ import SectionH2Title from "@/components/shared/SectionH2Title";
 import { GridBackground } from "@/components/ui/grid-background";
 import { educationData } from "@/constants/educationData";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 // import Image from "next/image";
 
 // interface CredentialCardProps {
@@ -60,9 +61,30 @@ export default function AboutEducationSection() {
                 key={education.id}
                 className={cn(`relative `)}
               >
-                <li className="flex items-start gap-4">
-                  <span className="block size-10 shrink-0 rounded-full" style={{backgroundColor:education.color}}/>
-                  <p className="font-semibold text-xl lg:text-2xl">{education.text}</p>
+                <li className="flex items-center gap-2">
+                  <span className="flex items-start gap-4">
+                    <span
+                      className="block size-10 shrink-0 rounded-full"
+                      style={{ backgroundColor: education.color }}
+                    />
+                    <p className="font-semibold text-xl lg:text-2xl">
+                      {education.text}
+                    </p>
+                  </span>
+                  {education.id === 2 && (
+                    <a
+                      href="https://www.a4pt.org/"
+                      target="__blank"
+                      rel="noreferrer noopener"
+                    >
+                      <Image
+                        src="/rtp-logo.png"
+                        alt="rtp logo"
+                        width={90}
+                        height={90}
+                      />
+                    </a>
+                  )}
                 </li>
                 {/* <CredentialCard
                 text={education.text}

@@ -76,7 +76,7 @@ export default function AboutHeroSection() {
                 height={60}
               />
             </h1>
-            <ul className="space-y-6 text-paragraph list-none">
+            {/* <ul className="space-y-6 text-paragraph list-none">
               <li className="flex gap-2">
                 <span className="text-[#1b1716] font-medium mt-1">•</span>
                 <div>
@@ -152,7 +152,10 @@ export default function AboutHeroSection() {
                   trauma.
                 </span>
               </li>
-            </ul>
+            </ul> */}
+            <p className="text-[#1b1716] max-w-3xl text-lg font-medium">
+              I hold a Bachelor of Science degree from Sam Houston State University (2008) and a Master of Arts in Clinical Psychology from the University of Houston–Clear Lake (2011). I have been a practicing <span className="font-semibold text-[#c1eda5]">Licensed Mental Health Counselor (LMHC)</span>   since 2012, working with children, adolescents, and families across a variety of settings. I am a <span className="font-semibold text-[#ff9b3e]">Registered Play Therapist™ (RPT™)</span> and have held this credential since 2018, reflecting my advanced training and specialization in play-based interventions. In 2019, I became a <span className="font-semibold text-[#d9c2ff]">Theraplay® Foundational Practitioner</span>, deepening my work with attachment-based and parent-child interventions. Most recently, I completed <span className="font-semibold text-[#ff9b3e]">EMDR training</span>  in 2025 to expand my ability to support children and families in healing from trauma.
+            </p>
           </FadeIn>
         </FadeInStagger>
       </Container>
