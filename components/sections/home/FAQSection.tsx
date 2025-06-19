@@ -55,7 +55,7 @@ export default async function FAQSection() {
       </FadeIn>
 
       <Image
-        src="/diversity-logo.png"
+        src="/diversity.png"
         alt="diversity logo"
         width={400}
         height={400}

@@ -76,7 +76,7 @@ export default async function ServicesPage() {
                              hover:bg-[#AFB7C1] focus:bg-[#AFB7C1] active:bg-[#AFB7C1]"
                 >
                   {/* background image */}
-                  <div className="absolute inset-0 rounded-[32px]">
+                  <div className="absolute inset-0 overflow-hidden rounded-[32px]">
                     <Image
                       src={expertise.image?.asset?.url ?? "/expertise-fallback.png"}
                       alt={expertise.title}
@@ -88,6 +88,7 @@ export default async function ServicesPage() {
                              calc(100vw-48px)"
                       className="object-cover rounded-[32px]"
                     />
+                    <div className="absolute inset-0 bg-black/20"></div>
                   </div>
 
                   {/* each item now is an AccordionItem at the bottom */}
@@ -97,7 +98,7 @@ export default async function ServicesPage() {
                                px-4 rounded-[32px]"
                     style={{ background: expertise.color }}
                   >
-                    <AccordionTrigger className="text-lg text-center font-semibold">
+                    <AccordionTrigger className="text-lg text-center cursor-pointer font-semibold">
                       {expertise.title}
                     </AccordionTrigger>
                     <AccordionContent className="text-lg">
