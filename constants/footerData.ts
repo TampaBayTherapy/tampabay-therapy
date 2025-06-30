@@ -19,8 +19,8 @@ export type FooterLink = {
     {
       title: "Call",
       content: [{ 
-        text: "281-686-5403", 
-         href: "tel:+12816865403",
+        text: "(813) 344-1121", 
+         href: "tel:+18133441121",
         type: 'phone'
       }],
       color: "#C1EDA5",
@@ -30,8 +30,8 @@ export type FooterLink = {
     {
       title: "Mail",
       content: [{
-        text: "tampabay@email.com", 
-        href: "mailto:tampabay@email.com",
+        text: "marymacgregor@tampabayplaytherapy.com", 
+        href: "mailto:marymacgregor@tampabayplaytherapy.com",
         type: 'email'
       }],
       color: "#FFF0B0",

@@ -94,3 +94,11 @@ export const ALL_FAQ = defineQuery(`
     cta { text, url }
   }
 `)
+
+export const SITE_SETTINGS = defineQuery(`*[_type == "siteSettings"][0]{
+  phoneRaw,
+  phoneDisplay,
+  email,
+  addressText,
+  mapUrl
+}`)

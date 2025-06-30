@@ -2,6 +2,8 @@ import ContactForm from "@/components/ContactForm";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { Container } from "@/components/shared/Container";
 import { FadeIn } from "@/components/shared/FadeIn";
+import { sanityFetch } from "@/sanity/lib/live";
+import { SITE_SETTINGS } from "@/sanity/lib/queries";
 import { Metadata } from "next";
 import Image from "next/image";
 import { Toaster } from "react-hot-toast";
@@ -22,7 +24,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
+export type SiteSettings = {
+  phoneRaw?: string;
+  phoneDisplay?: string;
+  email?: string;
+  addressText?: string;
+  mapUrl?: string;
+};
+
+export default async function ContactPage() {
+  const { data: settings } = await sanityFetch({
+    query: SITE_SETTINGS,
+  });
+
+  const { phoneRaw, phoneDisplay, addressText, mapUrl } = settings ?? {};
+  console.log(settings);
   return (
     <>
       <section className="pt-42 pb-12 bg-[#fdfdfd]">
@@ -55,30 +71,55 @@ export default function ContactPage() {
               therapy
             </p>
             <div className="w-full flex-col gap-4 sm:flex-row flex items-center justify-between">
-              <a
-                className="font-semibold group flex flex-col items-center gap-4"
-                href="tel:+12816865403"
-              >
-                <span className="flex items-center justify-center p-3 group-hover:text-accent-blue-dark group-hover:bg-white transition-all duration-300 size-12 bg-accent-blue-dark rounded-full text-white">
-                  <FaPhone className="size-6" />
-                </span>
-                <p className="font-semibold text-xl group-hover:text-accent-blue-dark transition-colors duration-300">
-                  281-686-5403
-                </p>
-              </a>
-              <a
-                href="https://www.google.com/maps/place/..."
-                rel="noopener noreferrer"
-                target="__blank"
-                className="flex group flex-col items-center max-w-[200px] gap-4"
-              >
-                <span className="flex items-center justify-center p-3 group-hover:text-accent-blue-dark group-hover:bg-white transition-all duration-300 size-12 bg-accent-blue-dark rounded-full text-white">
-                  <FaLocationPin className="size-6" />
-                </span>
-                <address className="font-semibold text-xl group-hover:text-accent-blue-dark transition-colors duration-300">
-                  Coming soon!
-                </address>
-              </a>
+              {/* PHONE */}
+              {phoneRaw && phoneDisplay ? (
+                <a
+                  className="font-semibold group flex flex-col items-center gap-4"
+                  href={`tel:${phoneRaw}`}
+                >
+                  <span className="flex items-center justify-center p-3 group-hover:text-accent-blue-dark group-hover:bg-white transition-all duration-300 size-12 bg-accent-blue-dark rounded-full text-white">
+                    <FaPhone className="size-6" />
+                  </span>
+                  <p className="font-semibold text-xl group-hover:text-accent-blue-dark transition-colors duration-300">
+                    {phoneDisplay}
+                  </p>
+                </a>
+              ) : (
+                <div className="font-semibold group flex flex-col items-center gap-4 text-gray-500 opacity-50">
+                  <span className="flex items-center justify-center p-3 transition-all duration-300 size-12 bg-accent-blue-dark rounded-full text-white">
+                    <FaPhone className="size-6" />
+                  </span>
+                  <p className="font-semibold text-xl transition-colors duration-300">
+                    Coming soon…
+                  </p>
+                </div>
+              )}
+
+              {/* ADDRESS */}
+              {addressText ? (
+                <a
+                  href={mapUrl ?? "#"}
+                  rel="noopener noreferrer"
+                  target="__blank"
+                  className="flex group flex-col items-center max-w-[200px] gap-4"
+                >
+                  <span className="flex items-center justify-center p-3 group-hover:text-accent-blue-dark group-hover:bg-white transition-all duration-300 size-12 bg-accent-blue-dark rounded-full text-white">
+                    <FaLocationPin className="size-6" />
+                  </span>
+                  <address className="font-semibold text-xl group-hover:text-accent-blue-dark transition-colors duration-300">
+                    {addressText}
+                  </address>
+                </a>
+              ) : (
+                <div className="flex group flex-col items-center max-w-[200px] gap-4 text-gray-500 opacity-50">
+                  <span className="flex items-center justify-center p-3 transition-all duration-300 size-12 bg-accent-blue-dark rounded-full text-white">
+                    <FaLocationPin className="size-6" />
+                  </span>
+                  <p className="font-semibold text-xl transition-colors duration-300">
+                    Coming soon…
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </FadeIn>
@@ -158,7 +199,7 @@ export default function ContactPage() {
           <ContactForm />
         </Container>
       </section>
-      <Toaster/>
+      <Toaster />
     </>
   );
 }
