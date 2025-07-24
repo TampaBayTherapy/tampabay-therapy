@@ -8,6 +8,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { SITE_SETTINGS } from "@/sanity/lib/queries";
 import { Metadata } from "next";
 import Image from "next/image";
+
 import { Toaster } from "react-hot-toast";
 import { FaLocationPin, FaPhone } from "react-icons/fa6";
 
@@ -209,6 +210,7 @@ export default async function ContactPage() {
         </Container>
       </section>
       <Toaster />
+      
     </>
   );
 }

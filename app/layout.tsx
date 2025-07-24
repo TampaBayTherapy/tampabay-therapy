@@ -6,6 +6,7 @@ import { Figtree } from "next/font/google";
 import { preconnect, prefetchDNS } from 'react-dom'
 
 
+
 const figtree = Figtree({
   subsets:["latin"]
 })
@@ -24,12 +25,14 @@ export default async function RootLayout({
 
     return (
       <html lang="en">
+        
         <body
           className={`${figtree.className}  antialiased`}
         >
          
              {children}
              <SanityLive />
+              
         </body>
       </html>
     );
