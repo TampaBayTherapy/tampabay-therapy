@@ -1,4 +1,6 @@
 import ContactForm from "@/components/ContactForm";
+import AppointmentRequestWidget from "@/components/ScheduleAppointmentWidget";
+
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { Container } from "@/components/shared/Container";
 import { FadeIn } from "@/components/shared/FadeIn";
@@ -196,7 +198,14 @@ export default async function ContactPage() {
           </defs>
         </svg>
         <Container className="max-w-4xl">
-          <ContactForm />
+          <div className="space-y-6 lg:space-y-12 text-center">
+            <div className="flex flex-col gap-8 lg:gap-12 items-center">
+              <h2 className="text-h2">Schedule Appointment</h2>
+              <AppointmentRequestWidget />
+            </div>
+              <p className="text-accent-blue-light text-4xl lg:text-7xl">OR</p>
+            <ContactForm />
+          </div>
         </Container>
       </section>
       <Toaster />
