@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Container } from "../../shared/Container";
 import { FadeIn } from "../../shared/FadeIn";
 import SectionH2Title from "../../shared/SectionH2Title";
+import SafeHtmlContent from "../../shared/SafeHtmlContent";
 import {
   Accordion,
   AccordionContent,
@@ -47,7 +48,7 @@ export default async function FAQSection() {
                 {item.question}
               </AccordionTrigger>
               <AccordionContent className="lg:text-lg">
-                {item.answer}
+                <SafeHtmlContent html={item.answer} />
               </AccordionContent>
             </AccordionItem>
           ))}
